@@ -2,18 +2,31 @@ const authService = require("../services/auth.service");
 
 class authController {
     register(req, res) {
-        const { username, password } = req.body;// thông tin từ người dùng nhập trên input sau đó chuyển sang service
-            //
+        const {username, password} = req.body;
+        // req.body nội dung người dùng gửi cho BE
+        // nhận xong thì chuyển cho thằng Service để xử lý logic
+        // Controller để trả về thông báo hoặc các mã kết qủa
+        const result = authService.register(username, password);
 
-        const result = authService.register(username,password);
-        
-        // thông báo là đã tạo thành công: 201
-        //nodejs luôn trả về một kiểu dữ liệu là json nên dùng res.json để trả về dữ liệu
-        // kiểu dữ liệu json nó nhẹ
+        if(result.success === false) {
+            return res.status(result.status).json({
+                message: result.message
+            });
+        }
+
         return res.status(201).json({
-            message: "User created successfully",
-            data: result,
-        });  
+            message: "Register successfully",
+            data: result
+        });
+    }
+    login(req, res) {
+        const {username, password} = req.body;
+        const result = authService.login(username, password);
+
+        return res.status(200).json({
+            message: result.message,
+        
+        }) 
     }
 }
 

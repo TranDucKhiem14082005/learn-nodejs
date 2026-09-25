@@ -5,6 +5,6 @@ app.use(bodyParser.json());
 
 
 
-app.use('/v1/auth', require('./app/v1/routes'));
+app.use("/v1/auth", require("./app/v1/routes"));
 
 module.exports = app;
