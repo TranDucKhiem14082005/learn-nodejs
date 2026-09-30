@@ -9,9 +9,17 @@ class authModle {
     //     return users.find((user) => user.username === username);
     // }
 
+    // createUser(username, password) {
+    //     return users.push({username, password});
+    // }
+    // getUser(username) {
+    //     return users.find(user => user.username === username);
+    // }
+
     createUser(username, password) {
         return users.push({username, password});
     }
+
     getUser(username) {
         return users.find(user => user.username === username);
     }

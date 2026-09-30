@@ -63,61 +63,111 @@ class authService {
     //     }
     // }
 
-    register(username, password) {
+    // register(username, password) {
+    //     if(!username || !password) {
+    //         return {
+    //             massage: "Username or password is required",
+    //             success: false,
+    //             status: 400 
+    //         }
+    //     }
+        
+    //     const user = authModle.getUser(username);
+    //     if(user) {
+    //         return {
+    //             massage: "Username is already exists",
+    //             success: false,
+    //             status: 400 
+    //         }
+    //     }
+
+    //     authModle.createUser(username, password);
+        
+    //     return {username, password};
+    // }
+
+    // login(username, password) {
+    //     if(!username || !password) {
+    //         return {
+    //             massage: "Username or password is required",
+    //             success: false,
+    //             status: 400 
+    //         }
+    //     }
+
+    //     const user = authModle.getUser(username);
+
+    //     if(!user) {
+    //         return {
+    //             massage: "Username is not exists",
+    //             success: false,
+    //             status: 400
+    //         }
+    //     }
+
+    //     if(user.password !== password) {
+    //         return {
+    //             massage: "Password is incorrect",
+    //             success: false,
+    //             status: 400
+    //         }
+    //     }
+
+    //     return {
+    //         massage: "Login successfully",
+    //     }
+
+    // }
+
+
+    register(username,password) {{
         if(!username || !password) {
             return {
-                massage: "Username or password is required",
+                message: "Username or password is required",
                 success: false,
-                status: 400 
-            }
+                status: 400
+            };
         }
-        
-        const user = authModle.getUser(username);
+        var user = authModle.getUser(username);
         if(user) {
             return {
-                massage: "Username is already exists",
+                message: "Username is already exists",
                 success: false,
-                status: 400 
-            }
+                status: 400
+            };
         }
-
-        authModle.createUser(username, password);
-        
+        authModle.createUser(username,password);
         return {username, password};
-    }
+    }}
 
-    login(username, password) {
+    login(username,password) {
         if(!username || !password) {
             return {
-                massage: "Username or password is required",
+                message: "Username or password is required",
                 success: false,
-                status: 400 
-            }
+                status: 400
+            };
         }
-
         const user = authModle.getUser(username);
-
         if(!user) {
             return {
-                massage: "Username is not exists",
+                message: "Username is not exists",
                 success: false,
                 status: 400
-            }
+            };
         }
-
         if(user.password !== password) {
             return {
-                massage: "Password is incorrect",
+                message: "Password is incorrect",
                 success: false,
                 status: 400
-            }
+            };
         }
-
         return {
-            massage: "Login successfully",
+            message: "Login successfully",
         }
-
     }
+
 }
 
 module.exports = new authService();

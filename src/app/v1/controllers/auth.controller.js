@@ -28,13 +28,40 @@ class authController {
         
     //     }) 
     // }
-    register(req,res) {
+    // register(req,res) {
+    //     const {username, password} = req.body;
+    //     const result = authService.register(username, password);
+    //     if(result.success === false) {
+    //         return res.status(result.status).json({
+    //             message: result.message
+    //         });
+    //     }
+    //     return res.status(201).json({
+    //         message: "Register successfully",
+    //         data: result
+    //     });
+    // }
+
+    // login(req, res) {
+    //     const {username, password} = req.body;
+    //     const result = authService.login(username, password);
+    //     if(result.success === false) {
+    //         return res.status(result.status).json({
+    //             massage: result.massage
+    //         });
+    //     }
+    //     return res.status(200).json({
+    //         massage: result.massage
+    //     });
+    // }
+
+    register(req,res){
         const {username, password} = req.body;
-        const result = authService.register(username, password);
+        const result = authService.register(username , password);
         if(result.success === false) {
             return res.status(result.status).json({
                 message: result.message
-            });
+            })
         }
         return res.status(201).json({
             message: "Register successfully",
@@ -42,16 +69,16 @@ class authController {
         });
     }
 
-    login(req, res) {
+    login(req,res) {
         const {username, password} = req.body;
         const result = authService.login(username, password);
         if(result.success === false) {
             return res.status(result.status).json({
-                massage: result.massage
+                message: result.message
             });
         }
         return res.status(200).json({
-            massage: result.massage
+            message: result.message
         });
     }
 
