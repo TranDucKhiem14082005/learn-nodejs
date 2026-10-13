@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "this is project demo for learning nodejs",
   "dependencies": {
-    "express": "^4.22.3"
+    "express": "^4.22.3",
+    "pg": "^8.23.1"
   }
 }
