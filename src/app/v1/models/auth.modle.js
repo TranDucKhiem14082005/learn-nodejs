@@ -4,7 +4,7 @@ const pgDatabase = require("../../../database/pg.database");
 class authModle {
     
 
-    createUser(username, password) {
+    static createUser(username, password) {
         return users.push({username, password});
     }
 
